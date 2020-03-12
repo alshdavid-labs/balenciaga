@@ -1,9 +1,14 @@
 package websockets
 
-import "net/http"
+import (
+	"net/http"
 
-import "github.com/gorilla/websocket"
+	"github.com/gorilla/websocket"
+	uuid "github.com/satori/go.uuid"
+)
 
+// Upgrade will upgrade an HTTP request
+// to a websocket connection
 func Upgrade(
 	w http.ResponseWriter,
 	r *http.Request,
@@ -18,7 +23,10 @@ func Upgrade(
 	if err != nil {
 		return nil
 	}
+	ID := uuid.NewV4()
 	return &Websocket{
-		Conn: c,
+		Privilaged: false,
+		SocketID:   ID.String(),
+		Conn:       c,
 	}
 }

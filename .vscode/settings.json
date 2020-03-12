@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    ".vscode": true,
+    "README.md": true,
+    ".off": true,
+    "go.mod": true,
+    "go.sum": true
+  }
+}
